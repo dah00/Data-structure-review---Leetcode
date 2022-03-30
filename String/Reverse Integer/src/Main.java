@@ -10,7 +10,8 @@ public class Main {
         while (x != 0){
             int rest = x%10;
             int newresult = (result*10) + rest;
-            if(newresult != (result*10) + rest)
+            // TODO: try to fully understand this condition
+            if((newresult-rest)/10 != result)
                 return 0;
             result = newresult;
             x /= 10;
