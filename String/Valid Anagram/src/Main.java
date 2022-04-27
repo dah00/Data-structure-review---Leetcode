@@ -9,19 +9,25 @@ public class Main {
     }
 
     public static boolean isAnagram(String s, String t) {
-        Map<Character, Integer> map1 = new HashMap<>();
-        Map<Character, Integer> map2 = new HashMap<>();
+
+        if (s.length() != t.length())
+            return false;
+
+        Map<Character, Integer> map = new HashMap<>();
 
         for(int i=0; i<s.length(); i++){
             Character character = s.charAt(i);
-            map1.put(character, map1.getOrDefault(character, 0)+1);
+            map.put(character, map.getOrDefault(character, 0)+1);
         }
 
-        for(int i=0; i<t.length(); i++){
-            Character character = s.charAt(i);
-            map2.put(character, map2.getOrDefault(character, 0)+1);
+        for (int i=0; i<t.length(); i++){
+            Character character = t.charAt(i);
+            if (map.containsKey(character) && map.get(character)>0)
+                map.put(character, map.get(character)-1);
+            else
+                return false;
         }
 
-        return map1.equals(map2);
+        return true;
     }
 }
