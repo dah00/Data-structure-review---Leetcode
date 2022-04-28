@@ -10,8 +10,8 @@ public class Main {
 
     public static boolean isPalindrome(String s) {
         /*
-            2. remove all non-alphanumeric characters
-            1. Convert all uppercase into lowercase
+            1. remove all non-alphanumeric characters
+            2. Convert all uppercase into lowercase
             3. Remove all white space
             4. Reverse s and put in another string
             5. Compare the two strings
