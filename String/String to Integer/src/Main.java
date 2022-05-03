@@ -32,9 +32,6 @@ public class Main {
             i++;
         }
 
-        if (i==0)
-            return 0;
-
         if (!isPositive)
             result *= -1;
 
