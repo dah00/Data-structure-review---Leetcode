@@ -2,7 +2,8 @@ public class Main {
     public static void main(String[] args) {
         String str = "+-12";
         int result = myAtoi(str);
-        System.out.println(result);
+
+        System.out.println();
     }
 
     public static int myAtoi(String s){
@@ -18,22 +19,22 @@ public class Main {
             s = s.substring(1);
 
         while(i<s.length() && Character.isDigit(s.charAt(i))){
-            if (s.charAt(i) == '0')
+            int remainder = Integer.parseInt(String.valueOf(s.charAt(i)));
+            if (result < Integer.MAX_VALUE/10 || (result == Integer.MAX_VALUE/10 && remainder <= Integer.MAX_VALUE%10)) {
+                result *= 10;
+                result += remainder;
+            }
+            else {
+                if (isPositive)
+                    return Integer.MAX_VALUE;
+                return Integer.MIN_VALUE;
+            }
             i++;
         }
 
         if (i==0)
             return 0;
 
-        // Checking if s is out of 32-bit signed integer range
-        s = s.substring(0,i);
-        if (s.length() > 10){
-            if (isPositive)
-                return Integer.MAX_VALUE;
-            return Integer.MIN_VALUE;
-        }
-
-        result = Integer.parseInt(s);
         if (!isPositive)
             result *= -1;
 
