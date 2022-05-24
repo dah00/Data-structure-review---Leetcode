@@ -16,6 +16,8 @@ public class Main {
             4. Reverse s and put in another string
             5. Compare the two strings
          */
+
+
         s = s.replaceAll("[^a-zA-Z0-9]", "");
         s = s.toLowerCase(Locale.ROOT);
 
