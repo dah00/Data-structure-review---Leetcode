@@ -18,30 +18,20 @@ class ListNode {
     ListNode(int val, ListNode next){this.val = val; this.next = next;}
 
     public static ListNode reverseList(ListNode head){
-        // Brute force
-        if (head == null || head.next == null)
+        // 1st solution : iterative way
+        /*if (head == null || head.next == null)
             return head;
 
-        ListNode curr = head;
-        while (curr.next.next != null){
-            curr = curr. next;
+        ListNode newHead = null;
+        ListNode iNode = head;
+        while (iNode != null){
+            ListNode jNode = iNode.next;
+            iNode.next = newHead;
+            newHead = iNode;
+            iNode = jNode;
         }
-        ListNode newHead = curr.next;
-        curr.next.next = curr;
-        curr = head;
+        return newHead;*/
 
-        // Check if this condition is corr for single element list
-        while(head.next.next != head){
-            if(curr.next.next == curr.next){
-                curr.next.next = curr;
-                curr = head;
-            }
-            else
-                curr = curr.next;
-        }
-
-        head.next = null;
-        return newHead;
-
+        // 2nd solution: recursive way
     }
 }
