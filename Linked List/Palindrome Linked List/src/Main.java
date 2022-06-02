@@ -50,13 +50,11 @@ class ListNode {
     }
 
     public static boolean check(ListNode node){
-        if(node == null){
+        if(node == null)
             return true;
-        }
-
         boolean ans = check(node.next);
-        boolean isEqual = ref.val == node.val;
+        boolean isSame = (ref.val == node.val);
         ref = ref.next;
-        return ans && isEqual;
+        return ans && isSame;
     }
 }
