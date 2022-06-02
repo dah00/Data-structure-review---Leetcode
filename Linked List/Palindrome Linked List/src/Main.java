@@ -24,8 +24,12 @@ class ListNode {
         this.next = next;
     }
 
+    static ListNode ref;
+
     public static boolean isPalindrome(ListNode head){
-        Stack<Integer> stack = new Stack<>();
+        // 1st solution: brute force
+
+        /*Stack<Integer> stack = new Stack<>();
         ListNode curr = head;
         while (curr!=null){
             stack.push(curr.val);
@@ -38,6 +42,21 @@ class ListNode {
                 return false;
             curr = curr.next;
         }
-        return true;
+        return true;*/
+
+        // 2nd solution:
+        ref = head;
+        return check(head);
+    }
+
+    public static boolean check(ListNode node){
+        if(node == null){
+            return true;
+        }
+
+        boolean ans = check(node.next);
+        boolean isEqual = ref.val == node.val;
+        ref = ref.next;
+        return ans && isEqual;
     }
 }
