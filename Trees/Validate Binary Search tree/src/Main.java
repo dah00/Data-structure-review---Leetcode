@@ -18,22 +18,14 @@ class TreeNode {
     }
 
     public static boolean isValidBST(TreeNode root) {
-        if(root.left == null && root.right == null)
-            return true;
-        boolean result = true;
-        if (root.left != null){
-            if (root.left.val < root.val)
-                result = result && isValidBST(root.left);
-            else
-                return false;
-        }
+        return helper(root, null, null);
+    }
 
-        if (root.right != null){
-            if (root.right.val > root.val)
-                result = result && isValidBST(root.right);
-            else
-                return false;
-        }
-        return result;
+    public static boolean helper(TreeNode root, Integer low, Integer high){
+        if (root == null)
+            return true;
+        if((low != null && root.val <= low) || (high != null && root.val >= high))
+            return false;
+        return helper(root.left, low, root.val) && helper(root.right, root.val, high);
     }
 }
