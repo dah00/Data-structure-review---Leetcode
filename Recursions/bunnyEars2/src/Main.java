@@ -22,18 +22,18 @@ public class Main {
         if (bunnies == 0)
             return 0;
         if(bunnies % 2 == 0)
-            return 3;
-        else
-            return 2;
+            return 3 + bunnyEars2(bunnies-1);
+        else{
+            return 2+ bunnyEars2(bunnies-1);
+        }
 
-        // step1: function bunnyEars2(n) should return the number of ears of the in the bunny line n
+        // step1: function bunnyEars2(n) should return the number of ears in the bunny line n
         //      bunnyEars2(n) -> returns bunnyEars2(0) + bunnyEars2(1) + ... + bunnyEars(n)
 
         // step2: Picking a subproblem, assuming the function works already
         //      bunnyEars2(n-1)
 
         // step3: Use the solution of the subproblem to solve the origin problem
-        return bunnyEars2(bunnies-1) + bunnyEars2(bunnies);
 
         // step4: Base case: the easiest case that requires no extra calculation
 
