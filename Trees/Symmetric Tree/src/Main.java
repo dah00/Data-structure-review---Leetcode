@@ -27,10 +27,29 @@ class TreeNode {
     }
 
     public boolean isSymmetric(TreeNode root) {
-        return help(root.left, root.right);
+        //Iterative solution
+        Stack<TreeNode> stack = new Stack<>();
+        stack.add(root.left);
+        stack.add(root.right);
+        while (!stack.empty()){
+            TreeNode node1 = stack.pop(), node2 = stack.pop();
+            if (node1==null && node2==null)
+                continue;
+            if (node1==null || node2==null || node1.val != node2.val)
+                return false;
+            stack.add(node1.left);
+            stack.add(node2.right);
+            stack.add(node1.right);
+            stack.add(node2.left);
+        }
+        return true;
+
+        //return help(root.left, root.right);
     }
 
-    private boolean help(TreeNode left, TreeNode right){
+    // Recursive solution
+    /*
+        private boolean help(TreeNode left, TreeNode right){
         // base case
         if (left == null && right == null)
             return true;
@@ -38,4 +57,5 @@ class TreeNode {
             return false;
         return help(left.left, right.right) && help(left.right, right.left);
     }
+     */
 }
