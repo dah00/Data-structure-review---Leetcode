@@ -25,20 +25,22 @@ class Node {
                 1:
          */
         StringBuilder stringBuilder = new StringBuilder();
-        int index = 0;
-        int chr = Integer.parseInt(String.valueOf(s.charAt(index)));
-        while(index < s.length()){
-            Node current = root;
-            while(index < s.length() && (chr == 0 && current.left != null) || (chr == 1 && current.right != null)) {
-                if (chr == 0)
-                    current = current.left;
-                else
-                    current = current.right;
-                chr = Integer.parseInt(String.valueOf(s.charAt(++index)));
-
+        Node current = root;
+        for(int i=0; i<s.length(); i++){
+            int chr = Integer.parseInt(String.valueOf(s.charAt(i)));
+            if(chr == 0 && current.left!=null){
+                current = current.left;
             }
-            stringBuilder.append(current.data);
-
+            else if(chr == 1 && current.right!= null){
+                current = current.right;
+            }
+            else{
+                i--;
+                stringBuilder.append(current.data);
+                current = root;
+            }
+            if(i == s.length()-1)
+                stringBuilder.append(current.data);
         }
 
         System.out.println(stringBuilder);
