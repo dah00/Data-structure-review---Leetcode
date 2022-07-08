@@ -17,6 +17,7 @@ public class Main {
             2 indices: i for nums, and j for nums2
 
          */
+        /*
         int[] result = new int[m+n];
         int i=0, j=0, index=0;
         while(index<n+m && j<n && i<m){
@@ -39,6 +40,16 @@ public class Main {
         for(int z=0; z<nums1.length; z++){
             nums1[z] = result[z];
         }
+        */
 
+        // Shorter solution: Knowing that the arrays are sorted so we can traverse the array backward
+        int index1=m-1, index2=n-1, index=m+n-1;
+        while(index>=0 && index1>=0 && index2>=0){
+            nums1[index--] = (nums1[index1] > nums2[index2]) ? nums1[index1--] : nums2[index2--];
+        }
+
+        while(index2>=0){
+            nums1[index--] = nums2[index2--];
+        }
     }
 }
