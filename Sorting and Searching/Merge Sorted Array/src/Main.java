@@ -1,6 +1,11 @@
+import java.util.Arrays;
+
 public class Main {
     public static void main(String[] args) {
+        int[] nums1 = {-1, 0, 0, 3, 3, 3, 0 , 0, 0};
+        int[] nums2 = {1, 2, 2};
 
+        merge(nums1, 6, nums2, 3);
     }
 
     private static void merge(int[] nums1, int m, int[] nums2, int n){
@@ -22,12 +27,17 @@ public class Main {
             }
         }
 
+
         while(i<m && index<n+m){
             result[index++] = nums1[i++];
         }
 
         while(j<n && index<n+m){
             result[index++] = nums2[j++];
+        }
+
+        for(int z=0; z<nums1.length; z++){
+            nums1[z] = result[z];
         }
 
     }
