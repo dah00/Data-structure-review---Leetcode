@@ -14,7 +14,7 @@ public class Main {
             choose prices[0] = 7
                 check profit for each day after buying
                 if
-        */
+
 
         // Brute force
         int profit = 0;
@@ -27,7 +27,16 @@ public class Main {
             }
         }
         return profit;
-
+    */
+        int min = Integer.MAX_VALUE;
+        int profit = 0;
+        for(int i=0; i<prices.length; i++){
+            if(prices[i] < min)
+                min = prices[i];
+            else if(profit < prices[i] - min)
+                profit = prices[i] - min;
+        }
+        return profit;
 
     }
 }
