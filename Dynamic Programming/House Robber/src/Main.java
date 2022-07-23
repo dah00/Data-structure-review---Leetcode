@@ -5,15 +5,12 @@ public class Main {
         }
     }
     private static int rob(int[] nums){
-        int sumEven = 0, sumOdd = 0;
-        for(int i=0; i<nums.length; i=i+2){
-            sumEven += nums[i];
+        return helper(nums, nums.length - 1);
+    }
+    private static int helper(int[] nums, int i) {
+        if (i < 0) {
+            return 0;
         }
-
-        for(int i=1; i<nums.length; i=i+2){
-            sumOdd += nums[i];
-        }
-
-        return Integer.max(sumEven, sumOdd);
+        return Math.max(helper(nums, i - 2) + nums[i], helper(nums, i - 1));
     }
 }
