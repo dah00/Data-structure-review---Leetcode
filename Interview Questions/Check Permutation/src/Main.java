@@ -5,12 +5,12 @@ import java.util.Map;
 public class Main {
     public static void main(String[] args) {
         String str1 = "fionam";
-        String str2 = "manfio";
+        String str2 = "manfiod";
 
         char[] content = str2.toCharArray();
         Arrays.sort(content);
-        System.out.println(new String(content));
-        //System.out.println(isPermutation(str1, str2));
+        //System.out.println(new String(content));
+        System.out.println(isPermutation(str1, str2));
 
         //System.out.println(isPermutation(str1, str2));
     }
@@ -46,19 +46,37 @@ public class Main {
         return true;*/
 
         // O(n) by sorting the two strings before comparing them.
-        if (str1.length() != str2.length()){
+        /*if (str1.length() != str2.length()){
             return false;
         }
 
-        /*str1 = sort(str1);
-        str2 = sort(str2);*/
-        return sort(str1).equals(sort(str2));
+        *//*str1 = sort(str1);
+        str2 = sort(str2);*//*
+        return sort(str1).equals(sort(str2));*/
+
+        // O(n) character counts
+        if (str1.length() != str2.length())
+            return false;
+        char[] chr = new char[128];
+        for (int i=0; i<str1.length(); i++){
+            int index = str1.charAt(i);
+            chr[index]++;
+        }
+
+        for (int i=0; i<str2.length(); i++){
+            int index = str2.charAt(i);
+            if (chr[index] < 1)
+                return false;
+            chr[index]--;
+        }
+
+        return true;
 
     }
 
-    private static String sort(String str){
+   /* private static String sort(String str){
         char[] content = str.toCharArray();
         Arrays.sort(content);
         return new String(content);
-    }
+    }*/
 }
