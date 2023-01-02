@@ -1,14 +1,9 @@
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
-        String str = "obeda";
-        int index = str.charAt(2);
-        System.out.println(index);
-    }
 
+    }
     private static boolean isUnique(String str){
         // USING DATA STRUCTURE
         /*Set<Character> set = new HashSet<>();
@@ -19,6 +14,16 @@ public class Main {
                 return false;
         }
         return true;*/
+
+        /*
+            Set<Character> set = new HashSet<>();
+        for(char chr = str.toCharArray()){
+            if(set.contains(chr))
+                return false;
+            set.add(chr);
+        }
+        return true;
+         */
 
         // WITH NO DATA STRUCTURE USED O(n^2)
        /* for(int i=0; i<str.length()-1; i++){

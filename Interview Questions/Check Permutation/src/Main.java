@@ -4,15 +4,20 @@ import java.util.Map;
 
 public class Main {
     public static void main(String[] args) {
-        String str1 = "fionam";
-        String str2 = "manfiod";
+        String str1 = "awesome";
+        String str2 = "sowmeawe";
 
-        char[] content = str2.toCharArray();
-        Arrays.sort(content);
-        //System.out.println(new String(content));
-        System.out.println(isPermutation(str1, str2));
+        if(str1.length() != str2.length())
+            System.out.println("Not a permutation");
+        if(sort(str1).equals(sort(str2)))
+            System.out.println("It is a permutation");
 
-        //System.out.println(isPermutation(str1, str2));
+    }
+
+    private static String sort(String str){
+        char[] chr = str.toCharArray();
+        Arrays.sort(chr);
+        return new String(chr);
     }
 
     /*
