@@ -1,9 +1,16 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 public class main {
     public static void main(String[] args) {
         String str1 = "bate";
         String str2 = "pale";
         System.out.println(oneAway(str1, str2));
+        System.out.println(str1.contains("p"));
+
     }
+
     /*
         a -> 0
         b -> 1
